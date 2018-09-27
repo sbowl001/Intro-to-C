@@ -8,7 +8,9 @@
 */
 void swap(int* a, int* b)
 {
-
+    int temporary = *a;
+    *a = *b;
+    *b = temporary;
 }
 
 /*
@@ -34,8 +36,15 @@ char *find_char(char *str, int c)
 */
 void string_copy(char *x, char *y)
 {
-
+    while( *y != '\0'){
+        *x = *y;
+        x++;
+        y++;
+    }
+    *x = '\0';
 }
+
+
 
 /* 
     Compares the character strings m and n and returns negative,
