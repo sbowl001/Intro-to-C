@@ -23,7 +23,17 @@ void swap(int* a, int* b)
 */
 char *find_char(char *str, int c)
 {
-
+    //loop through str
+    for ( int i = 0; i < strlen(str); i++)
+    {
+        if(str[i] == c)
+        {
+            //if we find C, return pointer to current location
+            return str + i;
+        }
+    }
+    //else
+    return NULL;
 }
 
 /*
@@ -62,6 +72,33 @@ void string_copy(char *x, char *y)
 */
 int string_compare(char *m, char *n)
 {
+    while( *m == *n)
+    {
+        if( *m == '\0')
+        {
+            return 0;
+        }
+        m++;
+        n++;
+
+    } 
+    // if (*m > *n )
+    // {
+
+    // }
+    // else 
+    // {
+
+    // }
+    return *m - *n;
+//     printf("called string compare");
+//     for(; *m == *n; m++, n++)
+//     {
+//         if(*m == "\0")
+//         {return 0;
+//         }
+//     }
+//     return 0;
 
 }
 
@@ -75,7 +112,28 @@ int string_compare(char *m, char *n)
 */
 char *find_string(char *haystack, char *needle)
 {
-
+    //loop through haystack
+    for( int h = 0; h < strlen(haystack); h++)
+    {
+        if ( haystack[h] == needle[0]) 
+        {
+            //save this position to a pointer
+            char *first = haystack + h;
+            int n = 1;
+            h++;
+            //look for the rest of needle
+            while(haystack[h] == needle[n])
+            {
+                h++;
+                n++;
+                if( needle[n] == '\0')
+                {
+                    return first;
+                }
+            }
+        }
+    }
+    return NULL;
 }
 
 #ifndef TESTING
